@@ -1,0 +1,147 @@
+body {
+    background-color: lightgray;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 473px;
+}
+
+main h2 {
+    width: 100%;
+    font-size: 30px;
+    color: white;
+    background-color: rgb(83, 202, 202);
+    padding: 0.8em;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+main ul {
+    width: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    border-radius: 10px;
+    padding: 1em;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+main ul li {
+    padding: 0.7em;
+    font-size: 22px;
+    list-style: none;
+    border-bottom: 1px solid lightgray;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-right: 10px;
+    box-sizing: border-box;
+}
+
+main ul li span {
+    cursor: pointer;
+}
+
+main ul li:last-child {
+    border-bottom: none;
+}
+
+main ul li.crossed-out span{
+    text-decoration: line-through wavy red;
+}
+
+main ul li i {
+    color: red;
+    font-size: 1.2em;
+}
+
+main ul li i:hover {
+    color: rgb(165, 0, 0);
+    cursor: pointer;
+}
+
+#botonAdd {
+    padding: 0 1.5rem;
+    height: 50px;
+    font-size: 22px;
+    color: white;
+    font-weight: bold;
+    background-color: rgb(83, 202, 202);
+    border-radius: 10px;
+    border: none;
+    position: absolute;
+    bottom: -10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+#botonAdd:hover {
+    background-color: rgb(39, 94, 94);
+    cursor: pointer;
+}
+
+/* <div class="modal"> */
+.modal {
+    z-index: 1000;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+/* <div class="modal open"> */
+.modal.open {
+    display: flex;
+}
+
+.modal form {
+    display: flex;
+}
+
+.modal form button {
+    margin-left: 1.5em;
+    border: 0;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 2px 15px rgb(75, 75, 75);
+    cursor: pointer;
+}
+
+.modal form button:hover {
+    filter: brightness(1.2);
+}
+
+.modal form input {
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: 0;
+    padding: 15px;
+    box-shadow: 0 2px 15px rgb(75, 75, 75);
+}
+
+.valider {
+    background-color: green;
+}
+
+.annuler {
+    background-color: red;
+}

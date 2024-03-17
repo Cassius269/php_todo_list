@@ -1,0 +1,34 @@
+version: '3.2'
+
+services: 
+
+  database: 
+    image: mysql:8.0.36
+    container_name: todo_database
+    restart: always
+    ports:
+      - 6800:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: todo
+      MYSQL_DATABASE: todo
+    volumes:
+      - database_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: todo_phpmyadmin
+    ports: 
+      - 6801:80
+    depends_on:
+      - database
+    environment:
+      - PMA_HOST=database
+      - PMA_USER=root
+      - PMA_PASSWORD=todo
+      - PHP_INI_UPLOAD_MAX_FILESIZE=100M
+      - PHP_INI_POST_MAX_SIZE=100M
+      - UPLOAD_LIMIT=2048M
+    restart: always
+
+volumes:
+  database_data: 
