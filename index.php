@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $taskName = strip_tags($_POST["task"]);
         $taskAdded = new Task();
         $taskAdded->setName($taskName);
-        $taskAdded->setState(0); // false : tâche pas encore faite
+       // $taskAdded->setState(0); // false : tâche pas encore faite
 
         $taskRepository->save($taskAdded);
 
@@ -67,7 +67,7 @@ if (isset($_GET["data-id"])) {
     <ul id="liste">
         <?php foreach ($tasks as $task) : ?>
             <li>
-                <a href=<?= "/?data-id=" . $task->getId(); ?>><span class=<?= $task->getState() === 0 ? null : "finished" ?>><?= $task; ?></span></a>
+                <a href=<?= "/?data-id=" . $task->getId(); ?>><span class=<?= $task->getState() ? "finished" : "" ?>><?= $task; ?></span></a>
                 <a href=<?= "?id=" . $task->getId(); ?>><i class="fas fa-trash-alt" aria-hidden="true"></i></a>
             </li>
         <?php endforeach; ?>

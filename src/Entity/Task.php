@@ -7,8 +7,8 @@ class Task
     // Les propriétés
     private ?int $id = null;
     private string $name;
-    // private bool $state = false; // false = pas encore fait
-    private int $state = 0 | 1;
+    private bool $state = false; // false = pas encore fait
+   // private int $state = 0 | 1;
     // Le constructeur :optionnel
     // La fonction d'hydration 
 
@@ -74,7 +74,7 @@ class Task
     /**
      * Get the value of state
      */
-    public function getState(): int // j'ai changé le booléen
+    public function getState():  bool // int j'ai changé le booléen
     {
         return $this->state;
     }

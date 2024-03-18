@@ -34,7 +34,7 @@ class TaskRepository
             'INSERT INTO tasks(name,state) VALUES(?,?)',
             [
                 $task->getName(),
-                $task->getState()
+                intval($task->getState())
             ]
         );
     }
@@ -63,7 +63,7 @@ class TaskRepository
         if ($task === null) { // dans le cas aucune donnée trouvée, arrêter l'execution de la fonction
             return;
         }
-
+/*
         $state = $task->getState();
 
         if ($state === 0) {
@@ -71,11 +71,12 @@ class TaskRepository
         } else if ($state === 1) {
             $state = 0;
         }
-
+*/
         $this->db->query(
             'UPDATE tasks SET state = :state WHERE id = :id',
             [
-                "state" => $state,
+                //"state" => $state,
+                "state" => intval(!$task->getState()),
                 "id" => $id,
             ]
         );
