@@ -6,7 +6,7 @@ class Task
     // Les propriétés
     private ?int $id = null;
     private string $name;
-    private bool $state = false; // false = pas encore fait
+    private int $state = 0; // false = pas encore fait
 
     // Le constructeur :optionnel
     // La fonction d'hydration 

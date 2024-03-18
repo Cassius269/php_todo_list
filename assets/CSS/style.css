@@ -1,0 +1,85 @@
+html {
+ font-size: 16px;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.formAddTask {
+    position: relative;
+    top:7.5rem;
+}
+
+.formAddTask form {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 4rem;
+}
+.formAddTask label, .formAddTask  input {
+    padding-left: 0.8rem;
+    height: 3.4rem;
+}
+
+.formAddTask label {
+    display: block;
+    border-radius: 10% 30% 50% 100%;
+    background-color: rgb(75, 221, 204);
+    height: 4rem;
+    padding-top:0.5rem;
+}
+
+.formAddTask  input {
+    border-radius: 10% 5% 5% 10%;
+
+}
+
+input[id="task"]{
+    font-size: 1.2rem;
+}
+
+input[id="task"]:focus{
+    background-color:rgb(222, 149, 31);
+}
+
+.button, .buttonAdd, .buttonCancel {
+    padding: 0 1.5rem;
+    height: 50px;
+    font-size: 22px;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    position:absolute;
+    bottom: -10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+}
+.buttonAdd {
+    background-color: rgb(31, 173, 76); 
+    margin-left: 15rem;
+}
+
+.buttonCancel {
+    background-color: rgb(223, 104, 45);
+}
+
+.cacher {
+    display:none;
+}
+
+.montrer {
+    display:block;
+}
+
+
+.finished{
+    text-decoration:line-through;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
