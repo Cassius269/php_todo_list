@@ -17,7 +17,7 @@ buttonAdd.addEventListener("click",()=>{
             transform:"translateY(0px)"
         },
         {
-            transform:"translateY(-300px"
+            transform:"translateY(-300px)"
         }
     ],
         {
@@ -28,10 +28,10 @@ buttonAdd.addEventListener("click",()=>{
 
     ULlistTask.animate([
         {
-            opacity:1
+            opacity:1        
         },
         {
-            opacity:0
+            opacity:0,        
         }
     ],
     {
@@ -89,6 +89,5 @@ ULlistTask.addEventListener("click",(e)=>{
     console.log(e);
     if(e.target.nodeName === "SPAN"){
         console.log("SPAN cliqué");
-
     }
 })

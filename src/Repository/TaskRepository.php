@@ -1,10 +1,11 @@
 <?php
+
 namespace src\Repository;
 
 use src\DB;
 use src\Entity\Task;
 
-class TaskRepository 
+class TaskRepository
 {
     private $db;
 
@@ -18,10 +19,10 @@ class TaskRepository
         $tasks = $this->db->query('SELECT * FROM tasks');
 
         $results = [];
-        foreach($tasks as $task){
+        foreach ($tasks as $task) {
             $results[] = Task::hydrate($task);
         }
-        
+
         return $results;
     }
 
@@ -32,7 +33,7 @@ class TaskRepository
         $this->db->query(
             'INSERT INTO tasks(name,state) VALUES(?,?)',
             [
-                $task->getName(), 
+                $task->getName(),
                 $task->getState()
             ]
         );
@@ -41,15 +42,15 @@ class TaskRepository
     // supprimer une tache
     public function delete(int $id): void
     {
-        if($this->findById($id) !== null){
-            $this->db->query('DELETE FROM tasks WHERE id = ?',[$id]);
+        if ($this->findById($id) !== null) {
+            $this->db->query('DELETE FROM tasks WHERE id = ?', [$id]);
         };
     }
 
     public function findById(int $id): ?Task
     {
-        $tasks = $this->db->query('SELECT * FROM tasks WHERE id = ?', [ $id ]);
-        
+        $tasks = $this->db->query('SELECT * FROM tasks WHERE id = ?', [$id]);
+
         return Task::hydrate($tasks[0]) ?? null;
     }
 
@@ -59,14 +60,24 @@ class TaskRepository
     {
         $task = $this->findById($id);
 
-        if($task === null){ // dans le cas aucune donnée trouvée, arrêter l'execution de la fonction
+        if ($task === null) { // dans le cas aucune donnée trouvée, arrêter l'execution de la fonction
             return;
         }
 
-        $this->db->query('UPDATE tasks SET state = :state WHERE id = :id',
-        [
-            "state" => !$task->getState(),
-            "id" => $id,
-        ]);
+        $state = $task->getState();
+
+        if ($state === 0) {
+            $state = 1;
+        } else if ($state === 1) {
+            $state = 0;
+        }
+
+        $this->db->query(
+            'UPDATE tasks SET state = :state WHERE id = :id',
+            [
+                "state" => $state,
+                "id" => $id,
+            ]
+        );
     }
 }
