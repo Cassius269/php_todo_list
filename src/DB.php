@@ -6,9 +6,9 @@ namespace src; // espace virtuel où se trouve la classe DB
 class DB
 {
     private string $dbname = 'todo';
-    private string $host = 'localhost:6800';
+    private string $host = '127.0.01:3306';
     private string $username = 'root';
-    private string $password = 'todo';
+    private string $password = 'connexion_2024&';
 
     private $pdo;
 
@@ -18,7 +18,7 @@ class DB
             $this->pdo = new \PDO('mysql:host=' . $this->host . ';dbname=' . $this->dbname, $this->username, $this->password);
 
             $this->pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-        } catch(\PDOException $e) {
+        } catch (\PDOException $e) {
             echo 'Erreur de connexion : ' . $e->getMessage();
         }
     }
